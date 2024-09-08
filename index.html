@@ -8,6 +8,8 @@
   <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="media.css" />
+  <link rel="stylesheet" href="output.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
@@ -35,6 +37,9 @@
         <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
         <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
         <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        <button id="dark-mode-toggle" class="p-2 rounded bg-gray-300 dark:bg-gray-700">
+          Toggle Dark Mode
+        </button>
       </div>
     </div>
   </nav>
@@ -49,9 +54,6 @@
       <div class="btn-container">
         <button class="btn btn-color-2" onclick="window.open('./assets/saim_korkmaz_resume.pdf')">
           Download CV
-        </button>
-        <button class="btn btn-color-1" onclick="location.href='./#contact'">
-          Contact Info
         </button>
       </div>
       <div id="socials-container">
@@ -68,23 +70,28 @@
   <section id="about">
     <p class="section__text__p1">Get To Know More</p>
     <h1 class="title">About Me</h1>
-    <div class="section-container">
-      <div class="section__pic-container">
-        <img src="./assets/por3.JPG" alt="Profile picture" class="about-pic" />
+    <div class="section-container flex flex-col md:flex-row items-center md:items-start md:justify-between">
+      <!-- Profile Picture Section -->
+      <div class="section__pic-container w-full md:w-1/2 flex justify-center md:justify-start">
+        <img src="./assets/por3.JPG" alt="Profile picture" class="about-pic w-full max-w-md rounded-lg" />
       </div>
-      <div class="about-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <img src="./assets/experience.png" alt="Experience icon" class="icon" />
+      <!-- About Details Section -->
+      <div class="about-details-container w-full md:w-1/2 flex flex-col justify-center px-4 md:px-8">
+        <div class="about-containers flex flex-col md:flex-row justify-between gap-4 mb-6">
+          <!-- Experience -->
+          <div class="details-container text-center">
+            <img src="./assets/experience.png" alt="Experience icon" class="icon mb-2" />
             <h3>Experience</h3>
             <p>2 years</p>
           </div>
-          <div class="details-container">
-            <img src="./assets/education.png" alt="Education icon" class="icon" />
+          <!-- Education -->
+          <div class="details-container text-center">
+            <img src="./assets/education.png" alt="Education icon" class="icon mb-2" />
             <h3>Education</h3>
             <p>Code Your Future<br />B.Sc. System Engineering</p>
           </div>
         </div>
+        <!-- Description Section -->
         <div class="text-container">
           <p>
             Dedicated and detail-oriented software developer with expertise in JavaScript, React, and Node.js.
@@ -96,8 +103,8 @@
         </div>
       </div>
     </div>
-    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#experience'" />
   </section>
+
   <section id="experience">
     <p class="section__text__p1">Explore My</p>
     <h1 class="title">Experience</h1>
@@ -192,69 +199,66 @@
         </div>
       </div>
     </div>
-    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'" />
   </section>
   <section id="projects">
     <p class="section__text__p1">Browse My Recent</p>
     <h1 class="title">Projects</h1>
-    <div class="experience-details-container">
-      <div class="about-containers">
-        <div class="details-container color-container">
-          <div class="article-container">
-            <img src="./assets/video-rec.png" alt="Project 2" class="project-img" />
-          </div>
-          <h2 class="experience-sub-title project-title">Video Recommendation</h2>
-          <div class="btn-container">
-            <button class="btn btn-color-2 project-btn"
-              onclick="window.open('https://github.com/nsaimk/Full-Stack-Project-Assessment/tree/main/client', '_blank')">
-
-              Github
-            </button>
-            <button class="btn btn-color-2 project-btn"
-              onclick="window.open('http://cap-cloud.s3-website.eu-west-2.amazonaws.com/', '_blank')">
-
-              Live Demo
-            </button>
-          </div>
+    <div class="experience-details-container flex flex-col gap-8 p-4">
+      <!-- Card 1 -->
+      <div class="details-container flex flex-col bg-white shadow-lg rounded-lg p-6 w-4/5 mx-auto">
+        <div class="article-container mb-4">
+          <img src="./assets/class-planner.png" alt="Project 1"
+            class="project-img w-full h-auto max-w-full rounded-lg" />
         </div>
-        <div class="details-container color-container">
-          <div class="article-container">
-            <img src="./assets/cyf-hotel.png" alt="Project 2" class="project-img" />
-          </div>
-          <h2 class="experience-sub-title project-title">CYF Hotel</h2>
-          <div class="btn-container">
-            <button class="btn btn-color-2 project-btn"
-              onclick="window.open('https://github.com/nsaimk/cyf-hotel-react', '_blank')">
-
-              Github
-            </button>
-            <button class="btn btn-color-2 project-btn"
-              onclick="window.open('http://https://cyf-hotel-react-aws.vercel.app', '_blank')">
-
-              Live Demo
-            </button>
-          </div>
+        <div class="left-content mb-4">
+          <ul class="list-none pl-5 space-y-2">
+            <li>CYF Final Project</li>
+            <li>Created for CYF volunteers to plan classes.</li>
+            <li>React, Node.js, PostgreSQL, Deployed to AWS.</li>
+          </ul>
         </div>
-        <div class="details-container color-container">
-          <div class="article-container">
-            <img src="./assets/class-planner.png" alt="Project 1" class="project-img" />
-          </div>
-          <h2 class="experience-sub-title project-title">Class Planner Project</h2>
-          <div class="btn-container">
-            <button class="btn btn-color-2 project-btn"
-              onclick="window.open('https://github.com/This-team-CFY/classplanner', '_blank')">
-              Github
-            </button>
-            <button class="btn btn-color-2 project-btn"
-              onclick="window.open('https://classplanner.vercel.app', '_blank')">
-              Live Demo
-            </button>
-          </div>
+        <div class="btn-container flex justify-center gap-4">
+          <button
+            class="btn btn-color-2 project-btn font-semibold transition-all ease-in-out duration-300 p-4 w-32 rounded-full border border-gray-700 hover:bg-gray-700 hover:text-white"
+            onclick="window.open('https://github.com/This-team-CFY/classplanner', '_blank')">
+            Github
+          </button>
+          <button
+            class="btn btn-color-2 project-btn font-semibold transition-all ease-in-out duration-300 p-4 w-32 rounded-full border border-gray-700 bg-transparent hover:bg-gray-700 hover:text-white hover:border-white"
+            onclick="window.open('http://classplanner.s3-website.eu-north-1.amazonaws.com/', '_blank')">
+            Live Demo
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="details-container flex flex-col bg-white shadow-lg rounded-lg p-6 w-4/5 mx-auto">
+        <div class="article-container mb-4">
+          <img src="./assets/nstutorial.png" alt="Project 2" class="project-img w-full h-auto max-w-full rounded-lg" />
+        </div>
+        <div class="left-content mb-4">
+          <ul class="list-none pl-5 space-y-2">
+            <li>My Full-Stack Project</li>
+            <li>Aims to teach programming to beginners.</li>
+            <li>Next.js, TypeScript, PostgreSQL.</li>
+          </ul>
+        </div>
+        <div class="btn-container flex justify-center gap-4">
+          <button
+            class="btn btn-color-2 project-btn font-semibold transition-all ease-in-out duration-300 p-4 w-32 rounded-full border border-gray-700 hover:bg-gray-700 hover:text-white"
+            onclick="window.open('https://github.com/nsaimk/nstoturial-next', '_blank')">
+            Github
+          </button>
+          <button
+            class="btn btn-color-2 project-btn font-semibold transition-all ease-in-out duration-300 p-4 w-32 rounded-full border border-gray-700 bg-transparent hover:bg-gray-700 hover:text-white hover:border-white"
+            onclick="window.open('https://nstutorial.vercel.app/', '_blank')">
+            Live Demo
+          </button>
         </div>
       </div>
     </div>
-    <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'" />
   </section>
+
   <section id="contact">
     <p class="section__text__p1">Get in Touch</p>
     <h1 class="title">Contact Me</h1>
